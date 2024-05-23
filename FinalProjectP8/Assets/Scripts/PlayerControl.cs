@@ -7,7 +7,8 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody playerRig;
     public float jumpForce;
     public float gravityModifier;
-    private float speed = 25;
+    public float speed = 3;
+    private float forwardInput;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,8 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        forwardInput = Input.GetAxis("Vertical");
+        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             playerRig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);

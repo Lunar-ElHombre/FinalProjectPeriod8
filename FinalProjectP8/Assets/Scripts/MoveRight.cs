@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MoveRight : MonoBehaviour
 {
-    private float speed = 30;
+    private float rightBound = -15;
+    private float speed = 8;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,5 +16,10 @@ public class MoveRight : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.right * Time.deltaTime * speed);
+        if (transform.position.x < rightBound && gameObject.CompareTag("Asteroid"))
+        {
+            Destroy(gameObject);
+        }
     }
+  
 }
