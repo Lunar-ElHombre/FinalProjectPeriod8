@@ -5,10 +5,11 @@ using UnityEngine;
 public class MoveLeft : MonoBehaviour
 {
     private float speed = 6;
+    private float rightbound = -76;
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame

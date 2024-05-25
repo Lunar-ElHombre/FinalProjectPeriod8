@@ -4,21 +4,34 @@ using UnityEngine;
 
 public class MoveRight : MonoBehaviour
 {
-    private float rightBound = -15;
+    private PlayerControl playerCS;
+    private float rightBound = -77;
     private float speed = 8;
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerCS = GameObject.Find("Player").GetComponent<PlayerControl>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right * Time.deltaTime * speed);
-        if (transform.position.x < rightBound && gameObject.CompareTag("Asteroid"))
+        if (playerCS.gameOver == false)
         {
-            Destroy(gameObject);
+            if (playerCS.doubleSpeed)
+            {
+                transform.Translate(Vector3.right * Time.deltaTime * (speed * 2));
+            }
+            else
+            {
+                transform.Translate(Vector3.right * Time.DeltaTime * speed);
+            }
+
+
+            if (transform.position.x < rightBound && gameObject.CompareTag("Asteroid"))
+            {
+                Destroy(gameObject);
+            }
         }
     }
   
