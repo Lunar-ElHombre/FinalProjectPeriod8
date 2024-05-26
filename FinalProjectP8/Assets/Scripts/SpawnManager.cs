@@ -2,29 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveRight : MonoBehaviour
+public class SpawnManager : MonoBehaviour
 {
     private PlayerControl playerCS;
-    private float rightBound = -2000;
-    private float speed = 30;
+    public GameObject asteriodPrefabs;
+    private Vector3 spawnPos = new Vector3(1553, 0, 0);
+    private float startDelay = 2;
+    private float repeatRate = 3;
+
     // Start is called before the first frame update
     void Start()
     {
+      InvokeRepeating("SpawnAsteroid", startDelay, repeatRate);
         playerCS = GameObject.Find("Player").GetComponent<PlayerControl>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+    }
+    void SpawnAsteroid ()
+    {
         if (playerCS.gameOver == false)
         {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
-
-            if (transform.position.x < rightBound && !gameObject.CompareTag("Background"))
-            {
-                Destroy(gameObject);
-            }
+            Instantiate(asteriodPrefabs, spawnPos, asteriodPrefabs.transform.rotation);
         }
     }
-  
 }

@@ -9,7 +9,6 @@ public class PlayerControl : MonoBehaviour
     public float gravityModifier;
     public float speed = 3;
     public bool gameOver = false;
-    private float forwardInput;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,19 +19,25 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        forwardInput = Input.GetAxis("Vertical");
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             playerRig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Asteroid"))
         {
             gameOver = true;
-            Debug.log("HAHA YOU LOSE!");
+            Debug.Log(" HAHA LOSER!");
+        }
+    }
+    public void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Background"))
+        {
+            gameOver = true;
+            Debug.Log(" WOW YOU'RE SO SMART");
         }
     }
 }
