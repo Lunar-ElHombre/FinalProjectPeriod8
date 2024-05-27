@@ -9,6 +9,7 @@ public class PlayerControl : MonoBehaviour
     public float gravityModifier;
     public float speed = 3;
     public bool gameOver = false;
+    private float forwardInput;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,9 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        forwardInput = Input.GetAxis("Vertical");
+        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+        if (Input.GetKeyDown(KeyCode.Space) && !gameOver)
         {
             playerRig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
