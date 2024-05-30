@@ -6,7 +6,8 @@ using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
-    public bool gameOver =  false;
+    public bool isGameActive;
+    public bool gameOver = false;
     public TextMeshProUGUI gameOverText;
     private PlayerControl playerCS;
     private float score = 0;
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        isGameActive = true;
         UpdateScore();
         StartCoroutine(IncreaseScoreOverTime());
     }
@@ -31,17 +32,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void UpdateScore()
     {
-        if (gameOver)
-        {
-            scoreText.text = $"Score: {score}";
-            return;
-        }
-            
+        scoreText.text = $"Score: {score}";
     }
-
     public void GameOver()
     {
         gameOverText.gameObject.SetActive(true);
+        isGameActive = false;
     }
-
 }
