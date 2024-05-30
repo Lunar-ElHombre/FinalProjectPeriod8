@@ -24,11 +24,7 @@ public class PlayerControl : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         if (Input.GetKeyDown(KeyCode.Space) && !gameOver)
         {
-            if (playerRig.transform.position.y < 10)
-            {
-                transform.position = new Vector3(transform.position.x, 10, transform.position.z);
-                playerRig.AddForce(-Vector3.up, ForceMode.VelocityChange);
-            }
+
             playerRig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoveRight : MonoBehaviour
 {
+    private GameManager gamemanager;
     private PlayerControl playerCS;
     private float rightBound = -2000;
     private float speed = 30;
@@ -12,6 +13,7 @@ public class MoveRight : MonoBehaviour
     {
         playerCS = GameObject.Find("Player").GetComponent<PlayerControl>();
     }
+   
 
     // Update is called once per frame
     void Update()
@@ -26,5 +28,5 @@ public class MoveRight : MonoBehaviour
             }
         }
     }
-  
+
 }

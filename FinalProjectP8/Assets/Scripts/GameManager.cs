@@ -38,14 +38,7 @@ public class GameManager : MonoBehaviour
         }
             
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        Destroy(gameObject);
-        if (!gameObject.CompareTag("Bad"))
-        {
-            GameManager.();
-        }
-    }
+
     public void GameOver()
     {
         gameOverText.gameObject.SetActive(true);
