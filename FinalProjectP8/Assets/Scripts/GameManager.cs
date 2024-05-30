@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public bool isGameActive;
     public bool gameOver = false;
+    private float startDelay = 2;
+    private float repeatRate = 3;
     public TextMeshProUGUI gameOverText;
     private PlayerControl playerCS;
     private float score = 0;
@@ -16,6 +18,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerCS = GameObject.Find("Player").GetComponent<PlayerControl>();
         isGameActive = true;
         UpdateScore();
         StartCoroutine(IncreaseScoreOverTime());

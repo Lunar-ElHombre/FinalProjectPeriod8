@@ -18,22 +18,24 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      InvokeRepeating("SpawnAsteroid", startDelay, repeatRate);
+      
+        InvokeRepeating("SpawnAsteroid", startDelay, repeatRate);
         playerCS = GameObject.Find("Player").GetComponent<PlayerControl>();
         Ypos = transform.position.y;
     }
 
     // Update is called once per frame
-    void Update()
+     void Update()
     {
         
     }
-    void SpawnAsteroid ()
+    void SpawnAsteroid()
     {
-        Vector3 spawnPos = transform.position;
-        if (playerCS.gameOver == false)
-        {
-            Instantiate(asteriodPrefabs, spawnPos, asteriodPrefabs.transform.rotation);
-        }
+            Vector3 spawnPos = transform.position;
+            if (playerCS.gameOver == false)
+            {
+                Instantiate(asteriodPrefabs, spawnPos, asteriodPrefabs.transform.rotation);
+            }
+        
     }
 }
