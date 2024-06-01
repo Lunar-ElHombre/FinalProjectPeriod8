@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
+    private GameManager gameManager;
     private Rigidbody playerRig;
     public float jumpForce;
     public float gravityModifier;
@@ -32,6 +34,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Asteroid"))
         {
+            
             gameOver = true;
             Debug.Log(" HAHA LOSER!");
         }
@@ -40,8 +43,10 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Background"))
         {
+            
             gameOver = true;
             Debug.Log(" WOW YOU'RE SO SMART");
         }
     }
+
 }

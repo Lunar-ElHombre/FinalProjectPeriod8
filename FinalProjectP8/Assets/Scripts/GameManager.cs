@@ -6,26 +6,27 @@ using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
-    public bool isGameActive;
+     public bool isGameActive;
     public bool gameOver = false;
-    private float startDelay = 2;
-    private float repeatRate = 3;
-    public TextMeshProUGUI gameOverText;
+    //private float startDelay = 2;
+    // private float repeatRate = 3;
+     public TextMeshProUGUI gameOverText;
     private PlayerControl playerCS;
     private float score = 0;
     public TextMeshProUGUI scoreText;
     private float scoreIncreaseRate = 1;
+
     // Start is called before the first frame update
     void Start()
     {
         playerCS = GameObject.Find("Player").GetComponent<PlayerControl>();
-        isGameActive = true;
+         isGameActive = true;
         UpdateScore();
         StartCoroutine(IncreaseScoreOverTime());
     }
     private IEnumerator IncreaseScoreOverTime()
     {
-        while (true)
+        while (isGameActive)
         {
             yield return new WaitForSeconds(scoreIncreaseRate);
             score++;
@@ -40,6 +41,6 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOverText.gameObject.SetActive(true);
-        isGameActive = false;
+         isGameActive = false;
     }
 }
