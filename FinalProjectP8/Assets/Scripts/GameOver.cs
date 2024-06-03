@@ -11,7 +11,7 @@ public class GameOver : MonoBehaviour
   public void setup(int score)
     {
         gameObject.SetActive(true);
-        scoreText.text = score.ToString() + "GAMEOVER!";
+        scoreText.text = "GAMEOVER!";
     }
     public void Reset()
     {
