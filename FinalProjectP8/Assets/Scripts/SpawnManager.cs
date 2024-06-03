@@ -31,6 +31,7 @@ public class SpawnManager : MonoBehaviour
     }
     void SpawnAsteroid()
     {
+
             Vector3 spawnPos = transform.position;
             if (playerCS.gameOver == false)
             {

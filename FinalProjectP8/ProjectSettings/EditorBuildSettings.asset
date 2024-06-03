@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 18b98b6deaf3e8440bf83afaf1626e68
+  - enabled: 1
+    path: Assets/Scenes/StarBorne Odyssey.unity
+    guid: f8cd26028be562d4ea1c845db8ec54d5
+  - enabled: 1
+    path: Assets/Scenes/GAMEOVER.unity
+    guid: 08f28ebfdb0e044409aef2fe4be53571
   m_configObjects: {}

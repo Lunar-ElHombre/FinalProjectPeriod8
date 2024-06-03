@@ -6,7 +6,8 @@ using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
-     public bool isGameActive;
+    
+    public bool isGameActive;
     public bool gameOver = false;
     //private float startDelay = 2;
     // private float repeatRate = 3;
@@ -43,4 +44,5 @@ public class GameManager : MonoBehaviour
         gameOverText.gameObject.SetActive(true);
          isGameActive = false;
     }
+   
 }
