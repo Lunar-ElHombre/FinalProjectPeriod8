@@ -1,12 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
-  public void GameDead()
+    public TextMeshProUGUI scoreText;
+  public void setup(int score)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        gameObject.SetActive(true);
+        scoreText.text = score.ToString() + "GAMEOVER!";
     }
+    public void Reset()
+    {
+        SceneManager.LoadScene("StarBorneOdessy");
+    }
+    
 }

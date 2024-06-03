@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
-    
+    public GameOver GMOver;
     public int health = 1;
     private GameManager gameManager;
     private Rigidbody playerRig;
@@ -16,7 +16,9 @@ public class PlayerControl : MonoBehaviour
     public float speed = 3;
     public bool gameOver = false;
     private float forwardInput;
+    public int maxPlatform = 0;
     // Start is called before the first frame update
+
     void Start()
     {
         playerRig = GetComponent<Rigidbody>();
@@ -38,7 +40,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Asteroid"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+            GMOver.setup(health);
             gameOver = true;
             Debug.Log(" HAHA LOSER!");
         }
@@ -47,7 +49,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Background"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+            GMOver.setup(health);
             gameOver = true;
             Debug.Log(" WOW YOU'RE SO SMART");
         }
